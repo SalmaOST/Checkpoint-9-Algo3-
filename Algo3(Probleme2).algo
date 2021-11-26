@@ -1,0 +1,49 @@
+//ALGORITHM EN FAISANT APPEL A UNE FONCTION
+//LA FONCTION A APPELE
+FUNCTION dot_product () :INTEGER
+VAR
+    V1:INTEGER
+    V2:INTEGER
+    i,n : INTEGER
+    PS : INTEGER
+BEGIN
+    FOR i FROM 0 TO n-1 STEP 1 DO
+       Write("Donnez l'element " ,i, du vecteur V1)
+       Read(V1[i])
+       Write("Donnez l'element " ,i, du vecteur V2)
+       Read(V2[i])
+   END_FOR
+   PS :=0
+    FOR i FROM 0 TO n-2 STEP 1 DO
+        PS := PS + V1[i]*V2[i]
+    END_FOR
+    RETURN PS ;
+END
+
+//ALGORITHM AVEC UTILISATION DE LA FONCTION
+ALGORITHM Produit_dot
+VAR
+    V1 : ARRAY_OF INTEGER[1..100]; 
+    V2 : ARRAY_OF INTEGER[1..100]; 
+    PS=INTEGER;
+BEGIN
+//Appelation des couples de vecteur et du nombre 
+    Write("Donnez le nombre de couple")
+    Read(m)
+    FOR j FROM 0 TO m-1 STEP 1  DO
+            Write("Donnez le couple de vecteur ", j)
+            Read (V1(j)), V2(j));
+            Write("Donnez la taille des vecteurs")
+            Read(n)
+    END_FOR
+    
+    //L'appelation de la fonction et resolution de l'algorithme
+    FOR j FROM 0 TO m-1 STEP 1 DO
+    PS:=dot_product(V1(j),V2(j)) 
+        IF (PS==0) THEN
+           RETURN ("V1 et V2 sont Orthogonaux")
+        ELSE
+           RETURN ("V1 et V2 ne sont pas orthogonaux")
+    END_IF
+    END_FOR
+END
